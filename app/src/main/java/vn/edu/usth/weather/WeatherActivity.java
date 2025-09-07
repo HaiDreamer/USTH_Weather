@@ -11,12 +11,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import vn.edu.usth.weather.databinding.ActivityWeatherBinding;
+import vn.edu.usth.weather.ui.theme.ForecastFragment;
 
 public class WeatherActivity extends AppCompatActivity {
     private String TAG = "WeatherActivity";     //help identify which class come form
@@ -38,46 +40,13 @@ public class WeatherActivity extends AppCompatActivity {
             Intent intent = new Intent(WeatherActivity.this, SettingActivity.class);
             startActivity(intent);
         });
+
+        if (savedInstanceState == null) { // prevents re-adding fragment on screen rotation
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, new ForecastFragment())
+                    .commit();
+        }
     }
 
-    public void WeatherTodayActivity(View v) {
-        Intent intent = new Intent(this, WeatherTodayActivity.class);
-        startActivity(intent);
-    }
-
-    public void SettingActivity(View v) {
-        Intent intent = new Intent(this, SettingActivity.class);
-        startActivity(intent);
-    }
-
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        Log.i(TAG, "onStart");
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.i(TAG, "onResume");
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.i(TAG, "onPause");
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.i(TAG, "onStop");
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.i(TAG, "onDestroy");
-    }
 }

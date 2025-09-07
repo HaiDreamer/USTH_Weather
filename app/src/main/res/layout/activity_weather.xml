@@ -1,38 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:orientation="vertical"
     tools:context=".WeatherActivity">
 
-    <!-- AppBarLayout for top bar -->
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
+    <!-- Fragment at the top -->
+    <FrameLayout
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fitsSystemWindows="true">
+        android:layout_height="66dp"
+        android:background="@android:color/darker_gray" />
 
-        <!-- FrameLayout inside AppBar -->
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp">
-
-            <TextView
-                android:id="@+id/topTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Weather Today"
-                android:textSize="28sp"
-                android:textStyle="bold"
-                android:textColor="@android:color/black" />
-
-        </FrameLayout>
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <!-- Welcome text -->
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -42,12 +23,10 @@
         android:layout_gravity="center"
         android:layout_marginBottom="200dp"/>
 
-    <!-- Buttons -->
     <LinearLayout
         android:id="@+id/buttonContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -70,4 +49,4 @@
             android:text="Exit" />
     </LinearLayout>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</LinearLayout>
