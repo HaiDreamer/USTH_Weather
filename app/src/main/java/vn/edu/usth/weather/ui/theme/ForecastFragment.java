@@ -2,13 +2,19 @@ package vn.edu.usth.weather.ui.theme;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import vn.edu.usth.weather.R;
 
 public class ForecastFragment extends Fragment {
 
@@ -17,15 +23,11 @@ public class ForecastFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        // Create an empty View (no layout XML needed)
-        View view = new View(getContext());
 
-        // Example: red with transparency (#20FF0000)
-        view.setBackgroundColor(Color.parseColor("#20FF0000"));
+        View v = inflater.inflate(R.layout.fragment_forecast, container, false);
 
-        // You can later change to #2000FF00 (green) or #200000FF (blue)
-        // just by editing this line.
-
-        return view;
+        return v;
     }
 }
+
+
