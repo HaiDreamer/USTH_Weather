@@ -7,21 +7,12 @@
     android:orientation="vertical"
     tools:context=".WeatherActivity">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="0dp"
-        android:text="Weather App"
-        android:textSize="30sp" />
-
     <!-- Fragment at the top -->
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="@android:color/darker_gray" />
+        android:background="@android:color/holo_blue_dark" />
 
     <LinearLayout
         android:id="@+id/buttonContainer"
@@ -34,19 +25,19 @@
             android:id="@+id/weather_today"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Weather Today" />
+            android:text="@string/weather_today" />
 
         <Button
             android:id="@+id/setting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Setting" />
+            android:text="@string/setting" />
 
         <Button
             android:id="@+id/exit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Exit" />
+            android:text="@string/exit" />
     </LinearLayout>
 
 </LinearLayout>
