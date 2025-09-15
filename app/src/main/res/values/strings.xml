@@ -11,5 +11,10 @@
     <string name="setting">Setting</string>
     <string name="exit">Exit</string>
     <string name="lorem_ipsum">Pls change it</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="temp25c">25°C</string>
+    <string name="sunny">Sunny</string>
+    <string name="Cloudy">cloudy\n</string>
 
 </resources>

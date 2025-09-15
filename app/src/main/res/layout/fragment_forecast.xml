@@ -1,26 +1,357 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/forecast_fragment"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:padding="16dp"
-    android:gravity="center_vertical"
-    android:background="#20FF0000">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/dayTextView"
-        android:layout_width="0dp"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="@string/thursday"
-        android:textSize="30sp"
-        android:textColor="@android:color/black" />
+        android:background="#F5EEFF"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:title="@string/app_name"
+        app:titleTextColor="@android:color/holo_blue_dark" />
 
-    <ImageView
-        android:id="@+id/weatherIcon"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:src="@drawable/weather_img_removebg"
-        android:contentDescription="@string/weather_icon" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:padding="8dp">
 
+        <TextView
+            android:id="@+id/tvsDay"
+            android:layout_width="104dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp"
+            android:layout_weight="1"
+            android:text="Monday"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/imsDay"
+            android:layout_width="234dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:src="@drawable/sunny_nobg" />
+
+
+        <LinearLayout
+            android:layout_width="74dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="@string/Cloudy"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvTemp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="24C - 31C"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/tvsDay1"
+            android:layout_width="102dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp"
+            android:layout_weight="1"
+            android:text="Tuesday"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/imsDay1"
+            android:layout_width="229dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:src="@drawable/rainy_nobg" />
+
+        <LinearLayout
+            android:layout_width="72dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvStatus1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rainy"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvTemp1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="24C - 30C"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/tvsDay2"
+            android:layout_width="72dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp"
+            android:layout_weight="1"
+            android:text="Wednesday"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/imsDay2"
+            android:layout_width="175dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:src="@drawable/rainy_nobg" />
+
+        <LinearLayout
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvStatus2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="rain"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvTemp2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="22C - 24C"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/tvsDay3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp"
+            android:layout_weight="1"
+            android:text="Thursday"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/imsDay3"
+            android:layout_width="222dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:src="@drawable/sunny_nobg" />
+
+        <LinearLayout
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvStatus3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sunny"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvTemp3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="26C - 30C"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/tvsDay4"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp"
+            android:text="Friday"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/imsDay5"
+            android:layout_width="245dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:src="@drawable/storm_nobg" />
+
+        <LinearLayout
+            android:layout_width="79dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvStatus5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="thunderstorm"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvTemp5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="24C - 26C"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/tvsDay6"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp"
+            android:text="Saturday"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/imsDay6"
+            android:layout_width="245dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:src="@drawable/sunny_nobg" />
+
+        <LinearLayout
+            android:layout_width="86dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvStatus6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sunny"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvTemp6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="38C - 40C"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/tvsDay7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp"
+            android:layout_weight="1"
+            android:text="Sunday"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/imsDay7"
+            android:layout_width="245dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/sunny_nobg" />
+
+        <LinearLayout
+            android:layout_width="93dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvStatus7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sunny"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvTemp7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="38C - 40C"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
 </LinearLayout>

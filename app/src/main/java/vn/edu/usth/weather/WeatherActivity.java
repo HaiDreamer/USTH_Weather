@@ -33,12 +33,6 @@ public class WeatherActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        if (savedInstanceState == null) { 
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction()
-                    .replace(R.id.fragment_container, new ForecastFragment())
-                    .commit();
-        }
     }
 
     @Override
