@@ -1,357 +1,288 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/forecast_fragment"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#F5EEFF"
-        app:navigationIcon="?attr/homeAsUpIndicator"
-        app:title="@string/app_name"
-        app:titleTextColor="@android:color/holo_blue_dark" />
-
+    android:background="@color/tealLight">
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:layout_marginTop="20dp"
-        android:padding="8dp">
-
-        <TextView
-            android:id="@+id/tvsDay"
-            android:layout_width="104dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="4dp"
-            android:layout_weight="1"
-            android:text="Monday"
-            android:textSize="24sp" />
-
-        <ImageView
-            android:id="@+id/imsDay"
-            android:layout_width="234dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:src="@drawable/sunny_nobg" />
-
+        android:layout_height="wrap_content">
 
         <LinearLayout
-            android:layout_width="74dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            >
 
             <TextView
-                android:id="@+id/tvStatus"
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:text="@string/Cloudy"
-                android:textSize="14sp" />
+                android:text="@string/Monday"
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:id="@+id/textView1"
+                android:gravity="center"/>
 
-            <TextView
-                android:id="@+id/tvTemp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="24C - 31C"
-                android:textSize="14sp" />
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                app:srcCompat="@drawable/sunny_nobg"
+                android:id="@+id/imageView1"
+                tools:ignore="ContentDescription" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:text="20 C - 30 C"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/textView2"
+                    android:layout_weight="1"
+                    tools:ignore="HardcodedText" />
+                <TextView
+                    android:text="@string/sunny"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/textView15"
+                    android:layout_weight="1" />
+            </LinearLayout>
 
         </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="8dp">
-
-        <TextView
-            android:id="@+id/tvsDay1"
-            android:layout_width="102dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="4dp"
-            android:layout_weight="1"
-            android:text="Tuesday"
-            android:textSize="24sp" />
-
-        <ImageView
-            android:id="@+id/imsDay1"
-            android:layout_width="229dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:src="@drawable/rainy_nobg" />
 
         <LinearLayout
-            android:layout_width="72dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
             <TextView
-                android:id="@+id/tvStatus1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Rainy"
-                android:textSize="14sp" />
+                android:text="@string/Tuesday"
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:id="@+id/textView5"
+                android:gravity="center"/>
 
-            <TextView
-                android:id="@+id/tvTemp1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="24C - 30C"
-                android:textSize="14sp" />
-
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                app:srcCompat="@drawable/sunny_nobg"
+                android:id="@+id/imageView2"
+                tools:ignore="ContentDescription" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:text="25 C - 30 C"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/textView4"
+                    android:layout_weight="1"
+                    tools:ignore="HardcodedText" />
+                <TextView
+                    android:text="@string/sunshine"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/textView19"
+                    android:layout_weight="1" />
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="8dp">
-
-        <TextView
-            android:id="@+id/tvsDay2"
-            android:layout_width="72dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="4dp"
-            android:layout_weight="1"
-            android:text="Wednesday"
-            android:textSize="24sp" />
-
-        <ImageView
-            android:id="@+id/imsDay2"
-            android:layout_width="175dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:src="@drawable/rainy_nobg" />
-
         <LinearLayout
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
             <TextView
-                android:id="@+id/tvStatus2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="rain"
-                android:textSize="14sp" />
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:id="@+id/textView6"
+                android:text="@string/Wednesday"
+                android:gravity="center"/>
 
-            <TextView
-                android:id="@+id/tvTemp2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="22C - 24C"
-                android:textSize="14sp" />
-
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                app:srcCompat="@drawable/rainy_nobg"
+                android:id="@+id/imageView3"
+                tools:ignore="ContentDescription" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:text="22 C - 31 C"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/textView7"
+                    android:layout_weight="1"
+                    tools:ignore="HardcodedText" />
+                <TextView
+                    android:text="@string/rainy"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/textView20"
+                    android:layout_weight="1" />
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="8dp">
-
-        <TextView
-            android:id="@+id/tvsDay3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="4dp"
-            android:layout_weight="1"
-            android:text="Thursday"
-            android:textSize="24sp" />
-
-        <ImageView
-            android:id="@+id/imsDay3"
-            android:layout_width="222dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:src="@drawable/sunny_nobg" />
-
         <LinearLayout
-            android:layout_width="75dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
             <TextView
-                android:id="@+id/tvStatus3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sunny"
-                android:textSize="14sp" />
+                android:text="@string/Thursday"
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:id="@+id/textView8"
+                android:gravity="center"/>
 
-            <TextView
-                android:id="@+id/tvTemp3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="26C - 30C"
-                android:textSize="14sp" />
-
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                app:srcCompat="@drawable/sunny_nobg"
+                android:id="@+id/imageView4"
+                tools:ignore="ContentDescription"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:text="22 C - 35 C"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/textView9"
+                    android:layout_weight="1"
+                    tools:ignore="HardcodedText" />
+                <TextView
+                    android:text="@string/sunny"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/textView21"
+                    android:layout_weight="1" />
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="8dp">
-
-        <TextView
-            android:id="@+id/tvsDay4"
-            android:layout_width="wrap_content"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="4dp"
-            android:text="Friday"
-            android:textSize="24sp" />
-
-        <ImageView
-            android:id="@+id/imsDay5"
-            android:layout_width="245dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:src="@drawable/storm_nobg" />
-
         <LinearLayout
-            android:layout_width="79dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
             <TextView
-                android:id="@+id/tvStatus5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="thunderstorm"
-                android:textSize="14sp" />
+                android:text="@string/Friday"
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:id="@+id/textView3"
+                android:gravity="center"/>
 
-            <TextView
-                android:id="@+id/tvTemp5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="24C - 26C"
-                android:textSize="14sp" />
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                app:srcCompat="@drawable/rainy_nobg"
+                android:id="@+id/imageView"
+                tools:ignore="ContentDescription" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:text="18 C - 26 C"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/textView"
+                    android:layout_weight="1"
+                    tools:ignore="HardcodedText" />
+                <TextView
+                    android:text="@string/rainy"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/textView22"
+                    android:layout_weight="1" />
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="8dp">
-
-        <TextView
-            android:id="@+id/tvsDay6"
-            android:layout_width="wrap_content"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="4dp"
-            android:text="Saturday"
-            android:textSize="24sp" />
-
-        <ImageView
-            android:id="@+id/imsDay6"
-            android:layout_width="245dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:src="@drawable/sunny_nobg" />
-
         <LinearLayout
-            android:layout_width="86dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
 
             <TextView
-                android:id="@+id/tvStatus6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sunny"
-                android:textSize="14sp" />
+                android:text="@string/Saturday"
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:id="@+id/textView11"
+                android:gravity="center"/>
 
-            <TextView
-                android:id="@+id/tvTemp6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="38C - 40C"
-                android:textSize="14sp" />
-
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                app:srcCompat="@drawable/storm_nobg"
+                android:id="@+id/imageView6"
+                tools:ignore="ContentDescription"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:text="12 C - 17C"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/textView10"
+                    android:layout_weight="1"
+                    tools:ignore="HardcodedText" />
+                <TextView
+                    android:text="@string/storm"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/textView23"
+                    android:layout_weight="1" />
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="8dp">
-
-        <TextView
-            android:id="@+id/tvsDay7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="4dp"
-            android:layout_weight="1"
-            android:text="Sunday"
-            android:textSize="24sp" />
-
-        <ImageView
-            android:id="@+id/imsDay7"
-            android:layout_width="245dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:src="@drawable/sunny_nobg" />
-
         <LinearLayout
-            android:layout_width="93dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
             <TextView
-                android:id="@+id/tvStatus7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sunny"
-                android:textSize="14sp" />
+                android:text="@string/Sunday"
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:id="@+id/textView16"
+                android:gravity="center"/>
 
-            <TextView
-                android:id="@+id/tvTemp7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="38C - 40C"
-                android:textSize="14sp" />
-
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                app:srcCompat="@drawable/rainy_nobg"
+                android:id="@+id/imageView17"
+                tools:ignore="ContentDescription" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:text="12 C - 25 C"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/textView18"
+                    android:layout_weight="1"
+                    tools:ignore="HardcodedText" />
+                <TextView
+                    android:text="@string/rainy"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/textView24"
+                    android:layout_weight="1" />
+            </LinearLayout>
         </LinearLayout>
 
 
     </LinearLayout>
-</LinearLayout>
+</ScrollView>

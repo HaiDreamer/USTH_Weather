@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">USTH Thoi tiet</string>
+    <string name="first_fragment_label">Manh 1</string>
+    <string name="second_fragment_label">Manh 2</string>
+    <string name="next">Tiep theo</string>
+    <string name="previous">Truoc do</string>
+    <string name="thursday">Thu 5</string>
+    <string name="weather_icon">Icon thoi tiet</string>
+    <string name="weather_today">Thoi tiet hom nay</string>
+    <string name="weather_app">Ung dung thoi tiet</string>
+    <string name="setting">Cai dat</string>
+    <string name="exit">Thoat</string>
+    <string name="sunny">Troi nang</string>
+    <string name="Cloudy">Nhieu may</string>
+    <string name="sunshine">Tuoi sang</string>
+    <string name="Monday">Thu 2</string>
+    <string name="Saturday">Thu 7</string>
+    <string name="rainy">Troi mua</string>
+    <string name="storm">Troi bao</string>
+    <string name="Sunday">Chu nhat</string>
+    <string name="Tuesday">Thu 3</string>
+    <string name="Wednesday">Thu 4</string>
+    <string name="Thursday">Thu 5</string>
+    <string name="Friday">Thu 6</string>
+</resources>

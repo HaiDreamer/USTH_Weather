@@ -19,7 +19,6 @@ public class WeatherActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
-        Log.i(TAG, "onCreate");
 
         Button weather_today = findViewById(R.id.weather_today);
         weather_today.setOnClickListener(v -> {
