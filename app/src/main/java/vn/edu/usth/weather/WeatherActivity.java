@@ -7,14 +7,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.util.Log;
 import android.widget.Button;
-
-import androidx.fragment.app.FragmentManager;
-
-import vn.edu.usth.weather.ui.theme.ForecastFragment;
 import android.media.MediaPlayer;
 
 public class WeatherActivity extends AppCompatActivity {
-    private String TAG = "WeatherActivity";
+    private final String TAG = "WeatherActivity";
 
     private MediaPlayer mediaPlayer;
 
