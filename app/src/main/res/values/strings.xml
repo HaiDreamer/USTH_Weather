@@ -28,5 +28,6 @@
     <string name="Wednesday">Wednesday\n</string>
     <string name="Thursday">Thursday\n</string>
     <string name="Friday">Friday\n</string>
+    <string name="refresh">Refresh</string>
 
 </resources>
