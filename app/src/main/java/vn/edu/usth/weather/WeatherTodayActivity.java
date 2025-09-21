@@ -1,36 +1,56 @@
 package vn.edu.usth.weather;
 
-import static androidx.fragment.app.FragmentManagerKt.commit;
-
 import android.content.Intent;
 import android.os.Bundle;
-
-import com.google.android.material.appbar.MaterialToolbar;
-import com.google.android.material.snackbar.Snackbar;
-
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toolbar;
+import android.widget.Toast;
 
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager2.widget.ViewPager2;
 
-import vn.edu.usth.weather.databinding.ActivityWeatherTodayBinding;
-import vn.edu.usth.weather.ui.theme.ForecastFragment;
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 public class WeatherTodayActivity extends AppCompatActivity {
+
+    private final String[] titles = new String[]{"Hanoi", "Paris", "Toulouse"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather_today);
+
+        Toolbar toolbar = findViewById(R.id.my_toolbar);
+        setSupportActionBar(toolbar);
+
+        ViewPager2 pager = findViewById(R.id.pager);
+        pager.setOffscreenPageLimit(3);
+        pager.setAdapter(new HomePagerAdapter(this, titles));
+
+        TabLayout tabs = findViewById(R.id.tabLayout);
+        new TabLayoutMediator(tabs, pager, (tab, position) -> {
+            tab.setText(titles[position]);
+        }).attach();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_weather, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.action_refresh) {
+            Toast.makeText(this, "Updated", Toast.LENGTH_SHORT).show();
+            return true;
+        } else if (item.getItemId() == R.id.action_settings) {
+            startActivity(new Intent(this, SettingActivity.class));
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
