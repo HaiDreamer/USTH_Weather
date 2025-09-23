@@ -5,13 +5,17 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.widget.Button;
 import android.media.MediaPlayer;
 
 public class WeatherActivity extends AppCompatActivity {
     private final String TAG = "WeatherActivity";
+    private final Handler mainHandler = new Handler(Looper.getMainLooper());
 
+    //bug: after go to another activity then comeback, the sound will not play
     private MediaPlayer mediaPlayer;
 
     @Override
@@ -22,13 +26,26 @@ public class WeatherActivity extends AppCompatActivity {
 
         Button weather_today = findViewById(R.id.weather_today);
         weather_today.setOnClickListener(v -> {
-            Intent intent = new Intent(WeatherActivity.this, WeatherTodayActivity.class);
-            startActivity(intent);
+            //background thread
+            new Thread(() -> {
+                try {
+                    // simulate 1s delay from internet
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
+                mainHandler.post(() -> {
+                    Intent intent = new Intent(this, WeatherTodayActivity.class);
+                    startActivity(intent);
+                });
+            }).start();
+            Log.d("ThreadCheck", "Running on: " + Thread.currentThread().getName());
         });
+
 
         Button setting = findViewById(R.id.setting);
         setting.setOnClickListener(v -> {
-            Intent intent = new Intent(WeatherActivity.this, SettingActivity.class);
+            Intent intent = new Intent(this, SettingActivity.class);
             startActivity(intent);
         });
 
