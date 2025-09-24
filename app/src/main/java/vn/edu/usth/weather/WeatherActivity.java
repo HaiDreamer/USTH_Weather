@@ -10,10 +10,16 @@ import android.os.Looper;
 import android.util.Log;
 import android.widget.Button;
 import android.media.MediaPlayer;
+import android.widget.Toast;
+
+import java.lang.ref.WeakReference;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class WeatherActivity extends AppCompatActivity {
     private final String TAG = "WeatherActivity";
     private final Handler mainHandler = new Handler(Looper.getMainLooper());
+    private final ExecutorService settingExecutor = Executors.newSingleThreadExecutor();
 
     //bug: after go to another activity then comeback, the sound will not play
     private MediaPlayer mediaPlayer;
@@ -22,6 +28,7 @@ public class WeatherActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
+
         mediaPlayer = MediaPlayer.create(this, R.raw.farout);
 
         Button weather_today = findViewById(R.id.weather_today);
@@ -42,14 +49,36 @@ public class WeatherActivity extends AppCompatActivity {
             Log.d("ThreadCheck", "Running on: " + Thread.currentThread().getName());
         });
 
-
-        Button setting = findViewById(R.id.setting);
-        setting.setOnClickListener(v -> {
-            Intent intent = new Intent(this, SettingActivity.class);
-            startActivity(intent);
-        });
-
+        Button setting_weather = findViewById(R.id.setting);
+        setting_weather.setOnClickListener(v -> runFakeNetworkTask());
     }
+
+    private void runFakeNetworkTask() {
+        final WeakReference<WeatherActivity> activityRef = new WeakReference<>(this);
+
+        settingExecutor.submit(() -> {
+            String result;
+            try {
+                Thread.sleep(1500); // simulate network delay
+                result = "Fake network response";
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                result = "Interrupted";
+            }
+
+            // switch to main/UI thread
+            String finalResult = result;
+            mainHandler.post(() -> {
+                WeatherActivity activity = activityRef.get();
+                if (activity == null || activity.isFinishing()) return;
+                Toast.makeText(activity, "Response: " + finalResult, Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(this, SettingActivity.class);
+                activity.startActivity(intent);
+            });
+        });
+    }
+
 
     @Override
     protected void onStart() {
@@ -85,6 +114,7 @@ public class WeatherActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        settingExecutor.shutdownNow();
         Log.i(TAG, "onDestroy");
         releasePlayer();
     }
