@@ -16,9 +16,13 @@ import java.lang.ref.WeakReference;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+//link image on internet: messenger
+
 public class WeatherActivity extends AppCompatActivity {
     private final String TAG = "WeatherActivity";
+    //main thread handler
     private final Handler mainHandler = new Handler(Looper.getMainLooper());
+    //single background thread
     private final ExecutorService settingExecutor = Executors.newSingleThreadExecutor();
 
     //bug: after go to another activity then comeback, the sound will not play
@@ -49,32 +53,64 @@ public class WeatherActivity extends AppCompatActivity {
             Log.d("ThreadCheck", "Running on: " + Thread.currentThread().getName());
         });
 
-        Button setting_weather = findViewById(R.id.setting);
-        setting_weather.setOnClickListener(v -> runFakeNetworkTask());
+//        Button setting_weather = findViewById(R.id.setting);
+//        setting_weather.setOnClickListener(v -> runFakeNetworkTask());
+
+        Button settingBtn = findViewById(R.id.setting);
+        settingBtn.setOnClickListener(v -> runFakeNetworkThen(() -> {
+            Toast.makeText(this, "Response: Fake network response", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(WeatherActivity.this, SettingActivity.class));
+        }));
     }
 
-    private void runFakeNetworkTask() {
-        final WeakReference<WeatherActivity> activityRef = new WeakReference<>(this);
+//    private void runFakeNetworkTask() {
+//        final WeakReference<WeatherActivity> activityRef = new WeakReference<>(this);
+//
+//        settingExecutor.submit(() -> {
+//            String result;
+//            try {
+//                Thread.sleep(1500); // simulate network delay
+//                result = "Fake network response";
+//            } catch (InterruptedException e) {
+//                Thread.currentThread().interrupt();
+//                result = "Interrupted";
+//            }
+//
+//            // switch to main/UI thread
+//            String finalResult = result;
+//            mainHandler.post(() -> {
+//                WeatherActivity activity = activityRef.get();
+//                if (activity == null || activity.isFinishing()) return;
+//                Toast.makeText(activity, "Response: " + finalResult, Toast.LENGTH_SHORT).show();
+//
+//                Intent intent = new Intent(this, SettingActivity.class);
+//                activity.startActivity(intent);
+//            });
+//        });
+//    }
+
+
+    private void runFakeNetworkThen(Runnable uiAction) {
+        WeakReference<WeatherActivity> ref = new WeakReference<>(this);
 
         settingExecutor.submit(() -> {
             String result;
             try {
-                Thread.sleep(1500); // simulate network delay
-                result = "Fake network response";
+                Thread.sleep(1000); // simulate network delay
+                result = "OK";
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
                 result = "Interrupted";
             }
 
-            // switch to main/UI thread
+            // Post back to main thread
             String finalResult = result;
             mainHandler.post(() -> {
-                WeatherActivity activity = activityRef.get();
-                if (activity == null || activity.isFinishing()) return;
-                Toast.makeText(activity, "Response: " + finalResult, Toast.LENGTH_SHORT).show();
+                WeatherActivity activity = ref.get();
+                if (activity == null || activity.isFinishing() || activity.isDestroyed()) return;
 
-                Intent intent = new Intent(this, SettingActivity.class);
-                activity.startActivity(intent);
+                Log.d(TAG, "Network result: " + finalResult);
+                if (uiAction != null) uiAction.run(); // safe: runs on UI thread
             });
         });
     }

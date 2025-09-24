@@ -29,5 +29,6 @@
     <string name="Thursday">Thursday\n</string>
     <string name="Friday">Friday\n</string>
     <string name="refresh">Refresh</string>
+    <string name="usth_logo" translatable="false">usth_logo\n</string>
 
 </resources>

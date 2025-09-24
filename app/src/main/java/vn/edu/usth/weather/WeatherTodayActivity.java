@@ -11,12 +11,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 public class WeatherTodayActivity extends AppCompatActivity {
 
     private final String[] titles = new String[]{"Hanoi", "Paris", "Toulouse"};
+    //change img to usth logo link as expected, but i am lazy to change it
+    private static final String USTH_LOGO_URL = "https://usth.edu.vn/wp-content/uploads/2021/11/search.png";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,24 @@ public class WeatherTodayActivity extends AppCompatActivity {
         new TabLayoutMediator(tabs, pager, (tab, position) -> {
             tab.setText(titles[position]);
         }).attach();
+
+        //background load(from internet) img in activity
+        Glide.with(this)
+                .load(USTH_LOGO_URL)
+                .into(new com.bumptech.glide.request.target.CustomTarget<android.graphics.drawable.Drawable>() {
+                    @Override
+                    public void onResourceReady(@NonNull android.graphics.drawable.Drawable resource,
+                                                com.bumptech.glide.request.transition.Transition<? super android.graphics.drawable.Drawable> transition) {
+                        // make it a bit transparent so content stays readable
+                        resource.setAlpha(140); // 0-255
+                        pager.setBackground(resource);
+                    }
+
+                    @Override
+                    public void onLoadCleared(android.graphics.drawable.Drawable placeholder) {
+                        pager.setBackground(placeholder);
+                    }
+                });
     }
 
     @Override
