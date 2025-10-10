@@ -25,7 +25,6 @@ public class WeatherActivity extends AppCompatActivity {
     //single background thread
     private final ExecutorService settingExecutor = Executors.newSingleThreadExecutor();
 
-    //bug: after go to another activity then comeback, the sound will not play
     private MediaPlayer mediaPlayer;
 
     @Override
@@ -158,6 +157,7 @@ public class WeatherActivity extends AppCompatActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
+        mediaPlayer = MediaPlayer.create(this, R.raw.farout);
         Log.i(TAG, "onRestart");
     }
 

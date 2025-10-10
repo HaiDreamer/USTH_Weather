@@ -37,24 +37,6 @@ public class WeatherTodayActivity extends AppCompatActivity {
         new TabLayoutMediator(tabs, pager, (tab, position) -> {
             tab.setText(titles[position]);
         }).attach();
-
-        //background load(from internet) img in activity
-        Glide.with(this)
-                .load(USTH_LOGO_URL)
-                .into(new com.bumptech.glide.request.target.CustomTarget<android.graphics.drawable.Drawable>() {
-                    @Override
-                    public void onResourceReady(@NonNull android.graphics.drawable.Drawable resource,
-                                                com.bumptech.glide.request.transition.Transition<? super android.graphics.drawable.Drawable> transition) {
-                        // make it a bit transparent so content stays readable
-                        resource.setAlpha(140); // 0-255
-                        pager.setBackground(resource);
-                    }
-
-                    @Override
-                    public void onLoadCleared(android.graphics.drawable.Drawable placeholder) {
-                        pager.setBackground(placeholder);
-                    }
-                });
     }
 
     @Override
